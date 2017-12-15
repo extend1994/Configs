@@ -21,6 +21,7 @@
         cl1 = clone --depth 1
         co = checkout
         cob = checkout -b
+        cn = clean -df
         df = diff
         dfc = diff --cached
         dfw = diff -w
@@ -51,6 +52,7 @@
         sh = stash
         sm = submodule
         st = status
+        s = status -s
         serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
         lg = log
         lgp = log -p
