@@ -202,7 +202,7 @@ alias wgetncc='wget --no-check-certificate'
 alias last='\last | less'
 alias tree='\tree -C'
 alias optipng='\optipng -o7 -zm1-9 -preserve'
-alais rm='rm -i'
+alias rm='rm -i'
 # For cdnjs env
 alias mini='~/repos/web-minify-helper/minify.sh'
 alias vsp='vim ~/repos/cdnjs/.git/info/sparse-checkout'
