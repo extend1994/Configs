@@ -97,7 +97,7 @@ set cursorcolumn
 syntax on
 
 " color scheme
-colorscheme kolor
+colorscheme luna-term
 
 " make whitespaces and TABs visible
 "l
