@@ -1,4 +1,10 @@
 # Configs
+* `less` highlight:
+  1.  `sudo apt install libsource-highlight-common source-highlight`
+  2.  ```shell
+      export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+      export LESS=" -R "
+      ```
 
 ## References
 * .bashrc
@@ -14,3 +20,6 @@
       * [blackboard](http://vimcolors.com/414/luna/dark)
       * [seti](http://vimcolors.com/244/seti/dark)
     * [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+ * less
+   * https://www.gnu.org/software/src-highlite/
+   * http://liyangliang.me/posts/2013/11/less-with-syntax-highlight-and-line-number/
