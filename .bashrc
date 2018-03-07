@@ -206,6 +206,10 @@ alias rm='rm -i'
 # For cdnjs env
 alias mini='~/repos/web-minify-helper/minify.sh'
 alias vsp='vim ~/repos/cdnjs/.git/info/sparse-checkout'
+alias grun='~/repos/autoupdate/autoupdate.js run'
+alias run='./auto-update.js run'
+alias view='~/repos/Tools/cdnjs/view.sh'
+alias vc='~/repos/Tools/cdnjs/versionCompare.sh' #version compare
 
 ###alias###
 
