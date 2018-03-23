@@ -2,6 +2,7 @@
 " charset
 set encoding=utf-8                   "enc, vim buffer charset, NOT the file's charset
 set fileencoding=utf-8               "fenc, default save charset
+set colorcolumn=80                   "set vertical line warning
 "fencs, default opening charset priority (as auto detection)
 set fileencodings=utf-8,utf-16le,big5,gb2312,gb18030,gbk,default
 
