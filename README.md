@@ -7,6 +7,8 @@
       ```
 
 ## References
+`.bashrc`, `.gitconfig`, `.tmux.conf`, `.vimrc` are initiallly based on https://github.com/PeterDaveHello/Unitial.
+
 * .bashrc
   * https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt\
   * http://xta.github.io/HalloweenBash/
