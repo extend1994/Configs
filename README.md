@@ -14,6 +14,7 @@
   * http://xta.github.io/HalloweenBash/
   * https://blog.gtwang.org/linux/how-to-make-a-fancy-and-useful-bash-prompt-in-linux-1/
 * .vimrc
+  * [Vundle](https://github.com/VundleVim/Vundle.vim): the plug-in manager for Vim
   * color sheme:
     * [Collected themes on official website](http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=color+scheme&order_by=creation_date&direction=descending&search=search)
     * http://vimcolors.com

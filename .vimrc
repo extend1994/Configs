@@ -8,6 +8,23 @@ set fileencodings=utf-8,utf-16le,big5,gb2312,gb18030,gbk,default
 
 " enable features which are not Vi compatible but really really nice.
 set nocompatible  "nocp
+filetype off                  " required for Vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Custom plugins
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'matze/vim-move'
+
+call vundle#end()             " required
+filetype plugin indent on     " required
 
 " default no bomb for utf-8
 set nobomb
@@ -107,7 +124,8 @@ set list
 set listchars=tab:>-,trail:·
 hi Normal  ctermfg=252 ctermbg=none
 highlight SpecialKey guifg=DarkGray
-highlight cursorline cterm=none ctermbg=2 ctermfg=0
+"luna-term theme would be better without the next line
+"highlight cursorline cterm=none ctermbg=2 ctermfg=0
 " set temp dirs, can speedup 100x when working on fuse via internet or nfs
 "set backupdir=~/.vim/bak/
 "set directory=~/.vim/swp/
