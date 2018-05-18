@@ -5,6 +5,8 @@
       export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
       export LESS=" -R "
       ```
+## hyper: A terminal built on web technologies
+See https://hyper.is/
 
 ## References
 `.bashrc`, `.gitconfig`, `.tmux.conf`, `.vimrc` are initiallly based on https://github.com/PeterDaveHello/Unitial.
