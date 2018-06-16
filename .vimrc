@@ -135,10 +135,12 @@ highlight SpecialKey guifg=DarkGray
 map <C-o> :set paste!<BAR>set paste?<CR>
 " map hot key <Ctrl>+n to switch if shows line numbers
 map <C-n> :set nu!<BAR>set nu?<CR>
-" map hot key <Ctrl>+h to switch if highlights current working column
+" map hot key <Ctrl>+g to switch if highlights current working column
 map <C-g> :set cursorcolumn!<BAR>set cursorcolumn?<CR>
 " map hot key <Ctrl>+h to switch if highlights current working line
 map <C-h> :set cursorline!<BAR>set cursorline?<CR>
+" map hot key <Ctrl>+a to switch if auto indent
+map <C-a> :set ai!<BAR>set ai?<CR> 
 
 " map tab / shift-tab to add/remove indent in normal & visual modes
 nmap <tab>   v>
