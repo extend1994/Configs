@@ -1,8 +1,8 @@
-
 " charset
 set encoding=utf-8                   "enc, vim buffer charset, NOT the file's charset
 set fileencoding=utf-8               "fenc, default save charset
-set colorcolumn=80                   "set vertical line warning
+set colorcolumn=72,80                   "set vertical line warning
+set completeopt-=preview             "NO MORE scratch preview
 "fencs, default opening charset priority (as auto detection)
 set fileencodings=utf-8,utf-16le,big5,gb2312,gb18030,gbk,default
 
@@ -11,20 +11,40 @@ set nocompatible  "nocp
 filetype off                  " required for Vundle
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
 "
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" Custom plugins
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'matze/vim-move'
+" auto completion
+Plugin 'Valloric/YouCompleteMe'
+" snippet engine
+Plugin 'SirVer/ultisnips'
+" snippet
+Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" vim status line
+Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+" text filtering and alignment
+Plugin 'godlygeek/tabular'
+" show git diff on left side of vim window
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+" syntax check
+Plugin 'vim-syntastic/syntastic'
+" file system explorer
+Plugin 'scrooloose/nerdtree'
+" show git status in NERDTree (can change symbols)
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" show real color of rgb text
+Plugin 'lilydjwg/colorizer'
 
 call vundle#end()             " required
 filetype plugin indent on     " required
+filetype plugin on
 
 " default no bomb for utf-8
 set nobomb
@@ -35,9 +55,11 @@ set expandtab     "et
 set tabstop=2     "ts
 " auto indent width
 set shiftwidth=2  "sw
+" decide tab space according to the editing file
+set smarttab
 
 " use the indent of the previous line for a newly created line
-" set autoindent    "ai
+set autoindent    "ai
 
 " 256 color mode
 set t_Co=256
@@ -71,8 +93,11 @@ set lazyredraw "lz
 " enable window title
 set title
 
+" auto-reload editing file when it's changed somewhere else
+set autoread
+
 " set windows title back to path instead of default 'Thanks for Flying Vim'
-let &titleold=getcwd()
+let &titleold = getcwd()
 
 " set statusbar
 set statusline+=%f              "filename
@@ -89,6 +114,7 @@ set statusline+=[%l,%c]         "cursor line,column
 set statusline+=\ \[%L\ lines\] "total lines
 set statusline+=\ [%P]          "percent through file
 set statusline+=\ %a            "if open multiple files, show current file and and the number of all files
+set statusline+=%{SyntasticStatuslineFlag()}
 
 " display a status line at the bottom of the window
 set laststatus=2 "ls
@@ -105,6 +131,7 @@ set foldlevel=5       "fdl default fold level
 set scrolloff=2       "so
 
 " enable mouse in all mode
+" disable it if you want to use ctrl+c to copy things
 " set mouse=a
 
 " hichlight current line
@@ -131,6 +158,7 @@ highlight SpecialKey guifg=DarkGray
 "set directory=~/.vim/swp/
 "set undodir=~/.vim/undo/
 
+" <BAR> means pipe '|', <CR> mean enter
 " map hot key <Ctrl>+m to switch paste mode
 map <C-o> :set paste!<BAR>set paste?<CR>
 " map hot key <Ctrl>+n to switch if shows line numbers
@@ -140,7 +168,13 @@ map <C-g> :set cursorcolumn!<BAR>set cursorcolumn?<CR>
 " map hot key <Ctrl>+h to switch if highlights current working line
 map <C-h> :set cursorline!<BAR>set cursorline?<CR>
 " map hot key <Ctrl>+a to switch if auto indent
-map <C-a> :set ai!<BAR>set ai?<CR> 
+map <C-a> :set ai!<BAR>set ai?<CR>
+" map hot key <Ctrl>+x to load the command of all lines indention
+map <C-x> :normal gg=G<CR>
+" map hot key <Shift>+t in order to move to next tab
+map <s-t> :bn<CR>
+" map hot key <Shift>+n
+map <s-y> :bd<CR>
 
 " map tab / shift-tab to add/remove indent in normal & visual modes
 nmap <tab>   v>
@@ -170,20 +204,59 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile named.conf* set filetype=named
 autocmd BufRead,BufNewFile *.pac set filetype=javascript
 
+" auto remove trailing whitespace when saving file
+autocmd BufWritePre * :%s/\s\+$//e
+
 " set makeprg(depends on filetype) if makefile is not exist
 if !filereadable('makefile') && !filereadable('Makefile')
-    autocmd FileType c setlocal makeprg=gcc\ %\ -o\ %<
-    autocmd FileType cpp setlocal makeprg=g++\ %\ -o\ %<
-    autocmd FileType sh setlocal makeprg=bash\ -n\ %
-    autocmd FileType php setlocal makeprg=php\ -l\ %
+  autocmd FileType c setlocal makeprg=gcc\ %\ -o\ %<
+  autocmd FileType cpp setlocal makeprg=g++\ %\ -o\ %<
+  autocmd FileType sh setlocal makeprg=bash\ -n\ %
+  autocmd FileType php setlocal makeprg=php\ -l\ %
 endif
 
 " set Netrw's default style to tree style listing
 let g:netrw_liststyle=3
-"=== IF YOU WANT TO USE THE FOLLOWING FEATURE, PLEASE UNCOMMENT IT BY YOURSELF ==="
 
-" remember and go to the last used location automatically.
-"autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+"======  ycm configs ======"
+" C-family Semantic Completion
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Python Semantic Completion
+let g:ycm_python_binary_path = '/usr/bin/python'
+let g:ycm_server_python_interpreter='/usr/bin/python'
+" ycm options, see https://github.com/Valloric/YouCompleteMe#options
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_tags_files=1
+" minimum number at which auto-completion displays
+let g:ycm_min_num_of_chars_for_completion=1
 
-" auto remove trailing whitespace when saving file
-"autocmd BufWritePre * :%s/\s\+$//e
+"====== ultisnips config ======"
+" custom key binding of ultisnips to integrate with ycm
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+"====== vim-airline config ======"
+let g:airline_section_warning = '%{SyntasticStatuslineFlag()}'
+" tabline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" disable 'show_buffer' to stop buffering after closing the file
+" let g:airline#extensions#tabline#show_buffers = 0
+" when there are too many tabs, show this
+let tabEllipsis = '…'
+
+"====== NERDtree config ======"
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_generic = 1
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"====== NERDtree config ======"
+"autocmd vimenter * NERDTree " uncomment if you want NERDTree when you enter
+map <C-t> :NERDTreeToggle<CR>
