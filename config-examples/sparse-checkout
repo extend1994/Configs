@@ -1,0 +1,11 @@
+/build
+/test
+/spec
+/tools
+/hooks
+/*.yml
+/*.md
+/*.json
+/*.sh
+/*.js
+/.jscsrc
