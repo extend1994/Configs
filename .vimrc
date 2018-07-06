@@ -20,11 +20,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " snippet engine
 Plugin 'SirVer/ultisnips'
-" snippet
-Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+" vim-snipmate is dependent on vim-addon-mw-utils & tlib_vim
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" snippet
+Plugin 'honza/vim-snippets'
 " vim status line
 Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
