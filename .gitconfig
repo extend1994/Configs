@@ -111,10 +111,6 @@
   lineNumber = true
 [diff]
   compactionHeuristic = true
-[remote "g-origin"]
-  fetch = +refs/heads/*:refs/remotes/g-origin/*
-  url = https://github.com/cdnjs/cdnjs.git
-  fetch = +refs/pull/*/head:refs/remotes/g-origin/pr/*
 # url shortcuts
 #[url "git@github.com:"]
   #insteadOf = git://github.com/
