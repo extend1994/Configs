@@ -26,6 +26,12 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 " snippet
 Plugin 'honza/vim-snippets'
+" markdown writing env
+Plugin 'plasticboy/vim-markdown'
+" centralize markdown text
+Plugin 'junegunn/goyo.vim'
+" markdown focus mode
+Plugin 'junegunn/limelight.vim'
 " vim status line
 Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
@@ -41,7 +47,7 @@ Plugin 'scrooloose/nerdtree'
 " show git status in NERDTree (can change symbols)
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " show real color of rgb text
-Plugin 'lilydjwg/colorizer'
+Plugin 'ap/vim-css-color'
 
 call vundle#end()             " required
 filetype plugin indent on     " required
@@ -237,6 +243,25 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+"====== vim-markdown config ======"
+let g:vim_markdown_new_list_item_indent = 2
+" code block program lang shortcut
+let g:vim_markdown_fenced_languages = ['javascript=js']
+
+"====== goyo.vim config ======"
+map <C-g> :Goyo<CR>
+let g:goyo_width = 125
+
+"====== limelight.vim config ======"
+map <C-l> :Limelight<CR>
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+"
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 
 "====== vim-airline config ======"
 let g:airline_section_warning = '%{SyntasticStatuslineFlag()}'
