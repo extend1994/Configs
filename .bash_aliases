@@ -55,11 +55,12 @@ alias svi='sudo vim'
 alias du='\du -h'
 alias df='\df -hT'
 alias wgetncc='wget --no-check-certificate'
+alias lnvm='. ~/.nvm/nvm.sh && . ~/.nvm/bash_completion' # load nvm
 alias diff='colordiff'
 # cdnjs related tools
 alias mini='~/repos/web-minify-helper/minify.sh'
 alias vsp='vim ~/repos/cdnjs/.git/info/sparse-checkout'
 alias grun='~/repos/autoupdate/autoupdate.js run'
-alias run='.~/repos/cdnjs/auto-update.js run'
+alias run='~/repos/cdnjs/auto-update.js run'
 alias view='~/repos/Tools/cdnjs/view.sh'
 alias vc='~/repos/Tools/cdnjs/versionCompare.sh'
