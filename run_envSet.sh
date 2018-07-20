@@ -74,11 +74,11 @@ fi
 vim +PluginInstall +qall
 # Load custom snippets
 mkdir -p ~/.vim/UltiSnips
-curl -Ss "$github_raw_url$my_config_repo""config-examples/UltiSnips/json.snippets" -o \
-         ~/.vim/UltiSnips/json.snippets
+curl -Ss "$github_raw_url$my_config_repo""config-examples/UltiSnips/json.snippets" \
+         -o ~/.vim/UltiSnips/json.snippets
 echo.LightBoldMagenta "(Re)Build YouCompleteMe [default Y/n]"
 read ycm_flag
-if [ -z $ycm_flag ]; then ycm_flag="Y"; fi
+[ -z $ycm_flag ] && ycm_flag="Y" || ycm_flag="N"
 if [ "$ycm_flag" = "Y" -o $ycm_flag = "y" ]; then
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py --clang-completer --js-completer
@@ -86,7 +86,7 @@ fi
 
 echo.LightBoldYellow "Install fzf command-line fuzzy finder [default Y/n]"
 read fzf_flag
-if [ -z $fzf_flag ]; then fzf_flag="Y"; fi
+[ -z $fzf_flag ] && fzf_flag="Y" || fzf_flag="N"
 if [ "$fzf_flag" = "Y" -o $fzf_flag = "y" ]; then
   if [ ! -d "/home/$USER/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -96,7 +96,7 @@ fi
 
 echo.LightBoldYellow "Enter yes to install cdnjs related environment [default Y/n]"
 read cdnjs_flag
-if [ -z $cdnjs_flag ]; then cdnjs_flag="Y"; fi
+[ -z $cdnjs_flag ] && cdnjs_flag="Y" || cdnjs_flag="N"
 if [ "$cdnjs_flag" = "Y" -o "$cdnjs_flag" = "y" ]; then
   # Initilize cdnjs repository
   if [ ! -d "/home/$USER/repos/cdnjs" ]; then
@@ -111,7 +111,7 @@ if [ "$cdnjs_flag" = "Y" -o "$cdnjs_flag" = "y" ]; then
     cd ~/repos/cdnjs
   fi
   echo.LightBoldOrange "Start to pull cdnjs repo, it takes long time..."
-  :git pull origin master --depth 10
+  git pull origin master --depth 10
   npm install
   echo.LightBoldCyan "Get git auto-update tool"
   if [ ! -d "/home/$USER/repos/autoupdate" ]; then
