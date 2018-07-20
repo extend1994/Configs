@@ -70,6 +70,10 @@ if [ ! -d "/home/$USER/.vim/bundle/Vundle.vim" ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 vim +PluginInstall +qall
+# Load custom snippets
+mkdir -p ~/.vim/UltiSnips
+curl -Ss "$github_raw_url$my_config_repo""config-examples/UltiSnips/json.snippets" -o \
+         ~/.vim/UltiSnips/json.snippets
 echo.LightBoldMagenta "(Re)Build YouCompleteMe [default Y/n]"
 read ycm_flag
 if [ -z $ycm_flag ]; then ycm_flag="Y"; fi
