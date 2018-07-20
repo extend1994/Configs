@@ -4,7 +4,7 @@ NUM_CORES=$(grep -c ^processor /proc/cpuinfo)
 
 echo "Now start to install working tools via apt"
 # Install the working tools
-sudo apt install -y git tmux wget curl tree vim htop cmake
+sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server
 # Enhance working tools: less
 sudo apt install -y libsource-highlight-common source-highlight colordiff
 # For git auto-update install
