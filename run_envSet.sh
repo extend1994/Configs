@@ -3,6 +3,9 @@ set -e
 NUM_CORES=$(grep -c ^processor /proc/cpuinfo)
 
 echo "Now start to install working tools via apt"
+# Update before installation in order to avoid that apt fail to locate
+# expected package
+sudo apt update
 # Install the working tools
 sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server
 # Enhance working tools: less
@@ -34,11 +37,10 @@ nvm_repo="creationix/nvm/v0.33.11/"
 echo.LightBoldYellow "Install nvm and node"
 if [ ! -e "/home/$USER/.nvm/nvm.sh" ]; then
   curl -o- "$github_raw_url$nvm_repo""install.sh" | bash
-else
-  # Load nvm command
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
+# Load nvm command
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 source ~/.bashrc
 # Use node v8 managed by nvm
 nvm install v8
@@ -47,9 +49,9 @@ echo.LightBoldYellow "Start to set tmux and install its plugins..."
 if [ ! -d "/home/$USER/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins
 if [ ! -d "/home/$USER/.tmux/plugins/tmux-mem-cpu-load" ]; then
+  sudo apt install -y g++
   git clone https://github.com/thewtex/tmux-mem-cpu-load ~/.tmux/plugins/tmux-mem-cpu-load
 fi
 cd ~/.tmux/plugins/tmux-mem-cpu-load
