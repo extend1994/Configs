@@ -170,18 +170,14 @@ highlight SpecialKey guifg=DarkGray
 map <C-o> :set paste!<BAR>set paste?<CR>
 " map hot key <Ctrl>+n to switch if shows line numbers
 map <C-n> :set nu!<BAR>set nu?<CR>
-" map hot key <Ctrl>+g to switch if highlights current working column
-map <C-g> :set cursorcolumn!<BAR>set cursorcolumn?<CR>
+" map hot key <Ctrl>+j to switch if highlights current working column
+map <C-j> :set cursorcolumn!<BAR>set cursorcolumn?<CR>
 " map hot key <Ctrl>+h to switch if highlights current working line
 map <C-h> :set cursorline!<BAR>set cursorline?<CR>
 " map hot key <Ctrl>+a to switch if auto indent
 map <C-a> :set ai!<BAR>set ai?<CR>
 " map hot key <Ctrl>+x to load the command of all lines indention
 map <C-x> :normal gg=G<CR>
-" map hot key <Shift>+t in order to move to next tab
-map <s-t> :bn<CR>
-" map hot key <Shift>+n
-map <s-y> :bd<CR>
 
 " map tab / shift-tab to add/remove indent in normal & visual modes
 nmap <tab>   v>
@@ -254,7 +250,7 @@ map <C-g> :Goyo<CR>
 let g:goyo_width = 125
 
 "====== limelight.vim config ======"
-map <C-l> :Limelight<CR>
+map <C-l> :Limelight!!<CR>
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -272,6 +268,15 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:airline#extensions#tabline#show_buffers = 0
 " when there are too many tabs, show this
 let tabEllipsis = '…'
+" map hot key <Shift>+r in order to move to previous tab
+map <s-r> :bp<CR>
+" map hot key <Shift>+t in order to move to next tab
+map <s-t> :bn<CR>
+" map hot key <Shift>+y to close the attached tab
+map <s-y> :bd<CR>
+
+"====== vim-gitgutter config ====="
+map <s-g> :GitGutterLineHighlightsToggle<CR>
 
 "====== NERDtree config ======"
 let g:syntastic_javascript_checkers = ['standard']
@@ -286,3 +291,17 @@ let g:syntastic_check_on_wq = 0
 "====== NERDtree config ======"
 "autocmd vimenter * NERDTree " uncomment if you want NERDTree when you enter
 map <C-t> :NERDTreeToggle<CR>
+
+"===== NERDTree git plugin config"
+let g:NERDTreeIndicatorMapCustom = {
+  \ "Modified"  : "!",
+  \ "Staged"    : "✚",
+  \ "Untracked" : "?",
+  \ "Renamed"   : ">",
+  \ "Unmerged"  : "═",
+  \ "Deleted"   : "x",
+  \ "Dirty"     : "✗",
+  \ "Clean"     : "✔︎",
+  \ 'Ignored'   : '☒',
+  \ "Unknown"   : "??"
+  \}

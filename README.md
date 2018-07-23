@@ -1,4 +1,60 @@
 # Configs
+:star: Star this repository if you like it! :tada: :blush:
+![screenshot.png](screenshot.png)
+
+## Notable features
+### shell prompt
+- current user
+- current directory
+- current Git branch and status if available
+
+### vim
+- Plugins for
+  - Auto completion: YouCompleteMe
+  - Snippet: ultisnips+vim-snipmate (engine) + vim-snippets (snippet)
+  - Markdown: vim-markdown, goyo.vim, limelight.vim
+  - Status line: vim-airline
+  - Auto tab: tabular
+  - Git related: vim-gitgutter, vim-fugitive, nerdtree-git-plugin
+  - Syntax check: syntastic
+  - File system explorer: NERDTree
+  - Preview colours: vim-css-color
+- Theme: Use [Luna-term](https://github.com/notpratheek/vim-luna/blob/master/colors/luna-term.vim)
+- vim config to promote working efficiency
+  - Show colorcolumn at 72 & 80 char location
+  - **Auto reload when the file is changes somewhere**
+  - **Remove trailing spaces when the file is saved**
+
+### tmux
+- Revised theme based on tmux-themepack
+- Status lin
+  - current user
+  - machine uptime
+  - tmux session name:window_index:pane_index
+  - cpu and memory load
+  - datetime
+  - date
+  - machine name
+- **Be able to store/restore tmux session even the machine is restarted**,<br>
+  see [key-bindings.md](key-bindings.md) to know how to use it!
+
+To see commands and key bindings in this env, please see [commands.md](commands.md) & [key-bindings.md](key-bindings.md)
+
+## Envoriment set up
+You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for bash),<br>
+when you run the script,<br>
+please **make sure** you have [ColorEcho.bash](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/dist/ColorEcho.bash) (for colored output) and load it `. ColorEcho.bash`.
+
+or it won't work well.
+
+But don't worry, it should be working because it's downloaded and loaded in run_envSet.sh
+
+If you want, you can also choose not to output with color,<br>
+just replace `echo.*` with normal `echo`
+
+```shell
+./run_envSet.sh
+```
 
 ## hyper: A terminal built on web technologies
 See https://hyper.is/
