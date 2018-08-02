@@ -90,6 +90,7 @@
   preloadindex = true
   ignorecase = false
   fscache = true
+  quotepath = false # for chinese in git status
 [mergetool]
   keepBackup = false
 [gui]
