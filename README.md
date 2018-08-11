@@ -78,8 +78,10 @@ See https://hyper.is/
     * http://vimcolors.com
       * [vim-material](http://vimcolors.com/679/vim-material/dark)
       * [luna](http://vimcolors.com/414/luna/dark)
-      * [blackboard](http://vimcolors.com/414/luna/dark)
+      * [blackboard](http://vimcolors.com/280/blackboard/dark)
       * [seti](http://vimcolors.com/244/seti/dark)
+      * [kolor](http://vimcolors.com/91/kolor/dark)
+      * [jellybeans](http://vimcolors.com/1/jellybeans/dark)
     * [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
  * less
    * https://www.gnu.org/software/src-highlite/
