@@ -27,7 +27,7 @@
 
 ### tmux
 - Revised theme based on tmux-themepack
-- Status lin
+- Status line
   - current user
   - machine uptime
   - tmux session name:window_index:pane_index
@@ -35,21 +35,21 @@
   - datetime
   - date
   - machine name
-- **Be able to store/restore tmux session even the machine is restarted**,<br>
+- **Be able to store/restore tmux session even the machine is restarted**,  
   see [key-bindings.md](key-bindings.md) to know how to use it!
 
 To see commands and key bindings in this env, please see [commands.md](commands.md) & [key-bindings.md](key-bindings.md)
 
 ## Envoriment set up
-You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for bash),<br>
-when you run the script,<br>
+You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for bash),  
+when you run the script,  
 please **make sure** you have [ColorEcho.bash](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/dist/ColorEcho.bash) (for colored output) and load it `. ColorEcho.bash`.
 
 or it won't work well.
 
 But don't worry, it should be working because it's downloaded and loaded in run_envSet.sh
 
-If you want, you can also choose not to output with color,<br>
+If you want, you can also choose not to output with color,  
 just replace `echo.*` with normal `echo`
 
 ```shell
@@ -63,10 +63,11 @@ See https://hyper.is/
 `.bashrc`, `.gitconfig`, `.tmux.conf`, `.vimrc` are initiallly based on https://github.com/PeterDaveHello/Unitial.
 
 * `less` highlight:
-  1.  `sudo apt install libsource-highlight-common source-highlight`
-  2.  ```shell
-      export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-      export LESS=" -R "      ```
+  * `sudo apt install libsource-highlight-common source-highlight`
+  * ```shell
+    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+    export LESS=" -R "
+    ```
 * .bashrc
   * https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt\
   * http://xta.github.io/HalloweenBash/
