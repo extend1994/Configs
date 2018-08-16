@@ -45,16 +45,25 @@ You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for 
 when you run the script,  
 please **make sure** you have [ColorEcho.bash](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/dist/ColorEcho.bash) (for colored output) and load it `. ColorEcho.bash`.
 
-or it won't work well.
+Otherwise, it can't work well.
 
 But don't worry, it should be working because it's downloaded and loaded in run_envSet.sh
 
-If you want, you can also choose not to output with color,  
+If you want, you can also choose output without color,  
 just replace `echo.*` with normal `echo`
 
 ```shell
 ./run_envSet.sh
 ```
+
+### What to install
+- Common apt packages: `tmux`, `wget`, `curl`, etc
+- Dot files: `.bashrc`, `.tmux.conf`, `.vimrc`, etc
+- nvm, npm and node
+- My [Tools](https://github.com/extend1994/Tools) repo for working efficiency
+- Optional
+  - [fzf command-line fuzzy finder](https://github.com/junegunn/fzf): Find the useful Fuzzy completion for bash and zsh [here](https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh)
+  - cdnjs contributing environment
 
 ## hyper: A terminal built on web technologies
 See https://hyper.is/
