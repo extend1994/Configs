@@ -213,3 +213,6 @@ enable-prompt-color
 if [ -r ~/.colorEcho ]; then
   source ~/.colorEcho
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"

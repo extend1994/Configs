@@ -13,7 +13,6 @@ alias egrep='\egrep --color=auto'
 
 # network tools
 alias p='ping'
-alias n='nslookup'
 alias d='dig'
 alias t='mtr'
 alias ssh='ssh -v'
@@ -57,6 +56,7 @@ alias df='\df -hT'
 alias wgetncc='wget --no-check-certificate'
 alias lnvm='. ~/.nvm/nvm.sh && . ~/.nvm/bash_completion' # load nvm
 alias diff='colordiff'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 # cdnjs related tools
 alias mini='~/repos/web-minify-helper/minify.sh'
 alias vsp='vim ~/repos/cdnjs/.git/info/sparse-checkout'
