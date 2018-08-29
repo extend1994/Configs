@@ -3,8 +3,19 @@
   name = LboAnn
 [color]
   ui = true
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old  = red bold
+  new  = green bold
+  whitespace = red reverse
 #[color "branch"] current, local, remote... are configurable
-#[color "diff"] meta, frag, old, new ... are configurable
 [alias]
   ad = add --all .
   asp= add -P
@@ -69,6 +80,7 @@
   lgpw = log -p -w
   lgs = log --stat --summary
   lgt = log --abbrev-commit --decorate --graph --color --pretty='format:%C(yellow)%h%Creset% s %C(magenta)%an%Creset %C(green)%ar%Creset'
+  lgtn = log -5 --abbrev-commit --decorate --graph --color --pretty='format:%C(yellow)%h%Creset% s %C(magenta)%an%Creset %C(green)%ar%Creset'
   lgf = log --follow
   lgpf = log -p --follow
   lgpwf = log -p -w --follow
@@ -86,7 +98,7 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
-  pager = ~/.git/contrib/diff-highlight | less
+  pager = "diff-so-fancy | less --tabs=2 -RFX"
   preloadindex = true
   ignorecase = false
   fscache = true
@@ -112,11 +124,3 @@
   lineNumber = true
 [diff]
   compactionHeuristic = true
-# url shortcuts
-#[url "git@github.com:"]
-  #insteadOf = git://github.com/
-  ##insteadOf = http://github.com/
-  #insteadOf = https://github.com/
-  #pushinsteadOf = git://github.com/
-  #pushinsteadOf = http://github.com/
-  #pushinsteadOf = https://github.com/

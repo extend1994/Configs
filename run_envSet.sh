@@ -7,7 +7,8 @@ echo "Now start to install working tools via apt"
 # expected package
 sudo apt update
 # Install the working tools
-sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server
+sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server \
+                    git-extras xclip
 # Enhance working tools: less
 sudo apt install -y libsource-highlight-common source-highlight colordiff
 # For git auto-update install
@@ -131,4 +132,5 @@ fi
 
 echo.LightBoldYellow "Get my own working tools"
 git clone https://github.com/extend1994/Tools.git ~/repos/Tools
+npm install --global tldr diff-so-fancy
 echo.LightBoldGreen "All done!!!"
