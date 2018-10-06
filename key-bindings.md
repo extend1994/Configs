@@ -17,6 +17,9 @@ Just press the following keys ( **case-sensitive** ), ***no prefix***.
   - *`Shift` + `t`*: Move to next tab
   - *`Shift` + `y`*: Close the attached tab
 
+### vim-syntastic
+- *`Shift` + `c`*: Toggle vim-syntastic
+
 ### snippets
 - *`Ctrl` + `j`*: Adopt the candidate snippet
   - **To avoid confliction with YouCompleteMe**

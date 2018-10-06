@@ -14,6 +14,9 @@
 - `:PluginList`: List installed plugins.
 - `:PluginClean`: **Remove** plugins not in .vimrc but on the hard disk
 
+### YouCompleteMe: Auto-completor
+- `:let b:ycm_largefile`: Equals 1 to disable, 0 to enable again
+
 ### vim-markdown: Enhance markdown writing efficiency
 - `:HeaderIncrease`
 - `:HeaderDecrease`

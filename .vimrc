@@ -279,6 +279,7 @@ map <s-y> :bd<CR>
 map <s-g> :GitGutterLineHighlightsToggle<CR>
 
 "====== vim-syntastic config ======"
+map <s-c> :SyntasticToggleMode<CR>
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_generic = 1
 "let g:syntastic_javascript_checkers = ['eslint']
