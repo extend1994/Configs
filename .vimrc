@@ -278,7 +278,7 @@ map <s-y> :bd<CR>
 "====== vim-gitgutter config ====="
 map <s-g> :GitGutterLineHighlightsToggle<CR>
 
-"====== NERDtree config ======"
+"====== vim-syntastic config ======"
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_generic = 1
 "let g:syntastic_javascript_checkers = ['eslint']
