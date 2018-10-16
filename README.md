@@ -77,10 +77,15 @@ See https://hyper.is/
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
     export LESS=" -R "
     ```
-* .bashrc
-  * https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt\
+* .bashrc: Bash prompt
+  * https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt
   * http://xta.github.io/HalloweenBash/
   * https://blog.gtwang.org/linux/how-to-make-a-fancy-and-useful-bash-prompt-in-linux-1/
+  * PS1
+    * `\e`: Turn on color
+    * [SGR parameter](https://bit.ly/2K4Foq4)
+      * `1`: Bold
+      * 256-color mode: `38;5;#m`
 * .vimrc
   * [Vundle](https://github.com/VundleVim/Vundle.vim): the plug-in manager for Vim
   * color sheme:

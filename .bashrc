@@ -191,12 +191,16 @@ function parse_git_dirty {
 function enable-prompt-color() {
   #\h is localhost machine name
   if [[ ${EUID} == 0 ]] ; then #root
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;91m\]\h\[\e[1;96m\] \w\[\e[93m\] $(parse_git_branch) \[\e[96m\]\$\[\e[00m\] \[\e[01;31m\]$(returncode)\[\e[0;37m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;91m\]\h\[\e[1;96m\] '
   else
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;92m\]\u\[\e[1;34m\] \w\[\e[93m\] $(parse_git_branch) \[\e[96m\]>\[\e[00m\] \[\e[01;31m\]$(returncode)\[\e[0;37m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;38;5;208m\]\u \[\e[0;37m\]at \[\e[1;38;5;33m\]\h '
     #with bg
     #PS1='${debian_chroot:+($debian_chroot)}\[\e[0;30;44m\]\u\[\e[0;34;102m\]\[\e[30;102m\] \w \[\e[92;103m\]\[\e[30;103m\]$(parse_git_branch)\[\e[93;40m\] \[\e[01;31m\]$(returncode)\[\e[0;37m\]'
   fi
+  PS1+='\[\e[0;37m\]in \[\e[1;38;5;34m\]\w '
+  PS1+='\[\e[1;38;5;220m\]$(parse_git_branch) '
+  PS1+='\[\e[0;37m\]now \[\e[1;38;5;6m\]\t'
+  PS1+='\n>\[\e[00m\] \[\e[01;31m\]$(returncode)\[\e[0;37m\]'
 }
 
 function disable-prompt-color() {
