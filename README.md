@@ -5,8 +5,10 @@
 ## Notable features
 ### shell prompt
 - current user
+- current machine
 - current directory
 - current Git branch and status if available
+- current time
 
 ### vim
 - Plugins for
@@ -35,21 +37,21 @@
   - datetime
   - date
   - machine name
-- **Be able to store/restore tmux session even the machine is restarted**,  
+- **Be able to store/restore tmux session even the machine is restarted**,
   see [key-bindings.md](key-bindings.md) to know how to use it!
 
 To see commands and key bindings in this env, please see [commands.md](commands.md) & [key-bindings.md](key-bindings.md)
 
 ## Envoriment set up
-You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for bash),  
-when you run the script,  
+You can get the same envinorment by running [run_envSet.sh](run_envSet.sh) (for bash),
+when you run the script,
 please **make sure** you have [ColorEcho.bash](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/dist/ColorEcho.bash) (for colored output) and load it `. ColorEcho.bash`.
 
 Otherwise, it can't work well.
 
 But don't worry, it should be working because it's downloaded and loaded in run_envSet.sh
 
-If you want, you can also choose output without color,  
+If you want, you can also choose output without color,
 just replace `echo.*` with normal `echo`
 
 ```shell
