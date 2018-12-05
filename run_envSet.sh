@@ -2,6 +2,12 @@
 set -e
 NUM_CORES=$(grep -c ^processor /proc/cpuinfo)
 
+echo "Checking your OS..."
+if [ ${OSTYPE} != "linux-gnu" ] || [ ${SYSTEM_BASE} != "debian" ]; then
+  echo "Can't apply this script in your OS"
+  exit 1
+fi
+
 echo "Now start to install working tools via apt"
 # Update before installation in order to avoid that apt fail to locate
 # expected package
