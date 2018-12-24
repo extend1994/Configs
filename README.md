@@ -40,6 +40,10 @@
 - **Be able to store/restore tmux session even the machine is restarted**,
   see [key-bindings.md](key-bindings.md) to know how to use it!
 
+### Useful tools
+
+1. [ripgrep(rg)](https://github.com/BurntSushi/ripgrep): faster & cleaner `grep`
+
 To see commands and key bindings in this env, please see [commands.md](commands.md) & [key-bindings.md](key-bindings.md)
 
 ## Envoriment set up

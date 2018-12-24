@@ -52,6 +52,11 @@ source ~/.bashrc
 # Use node v8 managed by nvm
 nvm install v8
 
+echo.LightBoldYellow "Install useful tools..."
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+sudo dpkg -i ripgrep_0.10.0_amd64.deb
+echo.LightBoldGreen "rg is installed! It's an alternative of \`grep\`."
+
 echo.LightBoldYellow "Start to set tmux and install its plugins..."
 if [ ! -d "/home/$USER/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
