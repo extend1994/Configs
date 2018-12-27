@@ -53,6 +53,8 @@ source ~/.bashrc
 nvm install v8
 
 echo.LightBoldYellow "Install useful tools..."
+pip install git+https://github.com/jeffkaufman/icdiff.git
+echo.LightBoldGreen "icdiff is installed! It's an improvement of \`colordiff\`."
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
 sudo dpkg -i ripgrep_0.10.0_amd64.deb
 echo.LightBoldGreen "rg is installed! It's an alternative of \`grep\`."
