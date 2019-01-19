@@ -58,6 +58,26 @@ echo.LightBoldGreen "icdiff is installed! It's an improvement of \`colordiff\`."
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
 sudo dpkg -i ripgrep_0.10.0_amd64.deb
 echo.LightBoldGreen "rg is installed! It's an alternative of \`grep\`."
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+sudo dpkg -i bat_0.9.0_amd64.deb
+rm -rf bat_0.9.0_amd64.deb
+echo.LightBoldGreen "bat is installed! It's an alternative of \`cat\`."
+curl -LO https://github.com/sharkdp/fd/releases/download/v7.2.0/fd_7.2.0_amd64.deb
+sudo dpkg -i fd_7.2.0_amd64.deb
+rm -rf fd_7.2.0_amd64.deb
+echo.LightBoldGreen "fd is installed! It's an alternative of \`find\`."
+sudo apt install -y ncdu lnav httpie
+echo.LightBoldGreen "ncdu is installed! It's an alternative of \`du\`."
+echo.LightBoldGreen "lnav is installed! It's a LOG file navigator."
+echo.LightBoldGreen "httpie is installed! It's an alternative of \`curl\`/\`wget\`."
+sudo apt install -y cargo
+cargo install exa
+echo "export PATH=\"~/.cargo/bin:$PATH\"" >> ~/.bashrc
+echo.LightBoldGreen "exa is installed! It's an alternative of \`ls\`"
+git clone https://github.com/rupa/z ~/.z
+echo ". ~/.z/z.sh" >> ~/.bashrc
+echo.LightBoldGreen "z is installed! It makes \`cd\` better."
+source ~/.bashrc
 
 echo.LightBoldYellow "Start to set tmux and install its plugins..."
 if [ ! -d "/home/$USER/.tmux/plugins/tpm" ]; then

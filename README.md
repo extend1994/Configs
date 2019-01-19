@@ -43,6 +43,13 @@
 ### Useful tools
 
 1. [ripgrep(rg)](https://github.com/BurntSushi/ripgrep): faster & cleaner `grep`
+2. [bat](https://github.com/sharkdp/bat): `cat` with line numbers
+3. [fd](https://github.com/sharkdp/fd): User-friendly `find`
+4. [ncdu](https://dev.yorhel.nl/ncdu): `du` alternative
+5. [lnav](http://lnav.org): Log file navigator
+6. [HTTPie](https://httpie.org/): Enhanced `curl`/`wget`
+7. [exa](https://the.exa.website): Powerful `ls`
+8. [z](https://github.com/rupa/z): Brilliant `cd`
 
 To see commands and key bindings in this env, please see [commands.md](commands.md) & [key-bindings.md](key-bindings.md)
 
