@@ -14,7 +14,7 @@ echo "Now start to install working tools via apt"
 sudo apt update
 # Install the working tools
 sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server \
-                    git-extras xclip
+                    git-extras xclip python-pip
 # Enhance working tools: less
 sudo apt install -y libsource-highlight-common source-highlight colordiff
 # For git auto-update install
@@ -72,7 +72,7 @@ echo.LightBoldGreen "lnav is installed! It's a LOG file navigator."
 echo.LightBoldGreen "httpie is installed! It's an alternative of \`curl\`/\`wget\`."
 sudo apt install -y cargo
 cargo install exa
-echo "export PATH=\"~/.cargo/bin:$PATH\"" >> ~/.bashrc
+echo "export PATH=\"~/.cargo/bin:\$PATH\"" >> ~/.bashrc
 echo.LightBoldGreen "exa is installed! It's an alternative of \`ls\`"
 git clone https://github.com/rupa/z ~/.z
 echo ". ~/.z/z.sh" >> ~/.bashrc
