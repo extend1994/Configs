@@ -40,7 +40,7 @@ curl -Ss "$github_raw_url$diff_highlight" -o ~/.git/contrib/diff-highlight
 sudo chmod 755 ~/.git/contrib/diff-highlight
 echo.LightBoldGreen "dotfiles are all loaded successfully!"
 
-nvm_repo="creationix/nvm/v0.33.11/"
+nvm_repo="creationix/nvm/v0.35.3/"
 echo.LightBoldYellow "Install nvm and node"
 if [ ! -e "/home/$USER/.nvm/nvm.sh" ]; then
   curl -o- "$github_raw_url$nvm_repo""install.sh" | bash
@@ -49,8 +49,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 source ~/.bashrc
-# Use node v8 managed by nvm
-nvm install v8
+nvm install v10
 
 echo.LightBoldYellow "Install useful tools..."
 pip install git+https://github.com/jeffkaufman/icdiff.git
@@ -74,8 +73,8 @@ sudo apt install -y cargo
 cargo install exa
 echo "export PATH=\"~/.cargo/bin:\$PATH\"" >> ~/.bashrc
 echo.LightBoldGreen "exa is installed! It's an alternative of \`ls\`"
-git clone https://github.com/rupa/z ~/.z
-echo ". ~/.z/z.sh" >> ~/.bashrc
+git clone https://github.com/rupa/z ~/z
+echo ". ~/z/z.sh" >> ~/.bashrc
 echo.LightBoldGreen "z is installed! It makes \`cd\` better."
 source ~/.bashrc
 
