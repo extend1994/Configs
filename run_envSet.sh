@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -e
 NUM_CORES=$(grep -c ^processor /proc/cpuinfo)
+BASH_VARIABLE=$(compgen -v)
 
 echo "Checking your OS..."
-if [ ${OSTYPE} != "linux-gnu" ] || [ ${SYSTEM_BASE} != "debian" ]; then
+if [ "${OSTYPE}" != "linux-gnu" ] || [[ "${BASH_VARIABLE[@]}" =~ "SYSTEM_BASE" ]] && [ ${SYSTEM_BASE} != "debian" ];  then
   echo "Can't apply this script in your OS"
   exit 1
 fi
