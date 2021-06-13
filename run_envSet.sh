@@ -130,41 +130,6 @@ if [ "$fzf_flag" = "Y" -o $fzf_flag = "y" ]; then
   ~/.fzf/install
 fi
 
-echo.LightBoldYellow "Enter yes to install cdnjs related environment [default Y/n]"
-read cdnjs_flag
-[ -z $cdnjs_flag ] && cdnjs_flag="Y" || cdnjs_flag="N"
-if [ "$cdnjs_flag" = "Y" -o "$cdnjs_flag" = "y" ]; then
-  # Initilize cdnjs repository
-  if [ ! -d "/home/$USER/repos/cdnjs" ]; then
-    git init ~/repos/cdnjs && cd ~/repos/cdnjs
-    git config core.sparseCheckout true
-    curl -Ss "$github_raw_url$my_config_repo""config-examples/sparse-checkout" -o \
-    ~/repos/cdnjs/.git/info/sparse-checkout
-    git remote add origin git://cdnjs.peterdavehello.org/cdnjs
-    git remote add g-origin git@github.com:cdnjs/cdnjs.git
-    git remote add myorigin git@github.com:extend1994/cdnjs.git
-  else
-    cd ~/repos/cdnjs
-  fi
-  echo.LightBoldOrange "Start to pull cdnjs repo, it takes long time..."
-  git pull origin master --depth 10
-  npm install
-  echo.LightBoldCyan "Get git auto-update tool"
-  if [ ! -d "/home/$USER/repos/autoupdate" ]; then
-    git clone https://github.com/cdnjs/autoupdate.git ~/repos/autoupdate
-  fi
-  cd ~/repos/autoupdate
-  npm install
-  echo.LightBoldCyan "Get minifying tool"
-  if [ ! -d "/home/$USER/repos/web-minify-helper" ]; then
-    git clone --recursive https://github.com/PeterDaveHello/web-minify-helper.git \
-                          ~/repos/web-minify-helper
-  fi
-  cd ~/repos/web-minify-helper
-  git submodule update --init
-  npm install
-fi
-
 echo.LightBoldYellow "Get my own working tools"
 git clone https://github.com/extend1994/Tools.git ~/repos/Tools
 npm install --global tldr diff-so-fancy
