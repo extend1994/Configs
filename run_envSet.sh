@@ -114,16 +114,16 @@ curl -Ss "$github_raw_url$my_config_repo""config-examples/UltiSnips/json.snippet
          -o ~/.vim/UltiSnips/json.snippets
 echo.LightBoldMagenta "(Re)Build YouCompleteMe [default Y/n]"
 read ycm_flag
-[ -z $ycm_flag ] && ycm_flag="Y" || ycm_flag="N"
-if [ "$ycm_flag" = "Y" -o $ycm_flag = "y" ]; then
+[ -z $ycm_flag ] && ycm_flag="Y"
+if [[ "$ycm_flag" =~ (Y|y|yes) ]]; then
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py --clang-completer --js-completer
 fi
 
 echo.LightBoldYellow "Install fzf command-line fuzzy finder [default Y/n]"
 read fzf_flag
-[ -z $fzf_flag ] && fzf_flag="Y" || fzf_flag="N"
-if [ "$fzf_flag" = "Y" -o $fzf_flag = "y" ]; then
+[ -z $fzf_flag ] && fzf_flag="Y"
+if [[ "$fzf_flag" =~ (Y|y|yes) ]]; then
   if [ ! -d "/home/$USER/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   fi
