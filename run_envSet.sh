@@ -12,14 +12,16 @@ fi
 echo "Now start to install working tools via apt"
 # Update before installation in order to avoid that apt fail to locate
 # expected package
-sudo apt update
+echo "Executing apt update..."
+sudo apt -qq update
 # Install the working tools
-sudo apt install -y git tmux wget curl tree vim htop cmake jq openssh-server \
+echo "Executing apt install..."
+sudo apt -qq install -y git tmux wget curl tree vim htop cmake jq openssh-server \
                     git-extras xclip python-pip
 # Enhance working tools: less
-sudo apt install -y libsource-highlight-common source-highlight colordiff
+sudo apt -qq install -y libsource-highlight-common source-highlight colordiff
 # For git auto-update install
-sudo apt install -y libssl-dev libcurl4-openssl-dev
+sudo apt -qq install -y libssl-dev libcurl4-openssl-dev
 
 github_raw_url="https://raw.githubusercontent.com/"
 
@@ -66,11 +68,11 @@ curl -LO https://github.com/sharkdp/fd/releases/download/v7.2.0/fd_7.2.0_amd64.d
 sudo dpkg -i fd_7.2.0_amd64.deb
 rm -rf fd_7.2.0_amd64.deb
 echo.LightBoldGreen "fd is installed! It's an alternative of \`find\`."
-sudo apt install -y ncdu lnav httpie
+sudo apt -qq install -y ncdu lnav httpie
 echo.LightBoldGreen "ncdu is installed! It's an alternative of \`du\`."
 echo.LightBoldGreen "lnav is installed! It's a LOG file navigator."
 echo.LightBoldGreen "httpie is installed! It's an alternative of \`curl\`/\`wget\`."
-sudo apt install -y cargo
+sudo apt -qq install -y cargo
 cargo install exa
 echo "export PATH=\"~/.cargo/bin:\$PATH\"" >> ~/.bashrc
 echo.LightBoldGreen "exa is installed! It's an alternative of \`ls\`"
@@ -85,7 +87,7 @@ if [ ! -d "/home/$USER/.tmux/plugins/tpm" ]; then
 fi
 ~/.tmux/plugins/tpm/bin/install_plugins
 if [ ! -d "/home/$USER/.tmux/plugins/tmux-mem-cpu-load" ]; then
-  sudo apt install -y g++
+  sudo apt -qq install -y g++
   git clone https://github.com/thewtex/tmux-mem-cpu-load ~/.tmux/plugins/tmux-mem-cpu-load
 fi
 cd ~/.tmux/plugins/tmux-mem-cpu-load
@@ -99,9 +101,9 @@ echo.LightBoldCyan "Get vim theme: luna-term"
 curl -Ss "$github_raw_url$lunaterm_repo""colors/luna-term.vim" -o ~/.vim/colors/luna-term.vim
 echo.LightBoldCyan "Install vim plugin manager vundle to install all plugins"
 # ycm requirement
-sudo apt-get install build-essential -y
+sudo apt-get -qq install build-essential -y
 # For python headers
-sudo apt-get install python-dev python3-dev -y
+sudo apt-get -qq install python-dev python3-dev -y
 if [ ! -d "/home/$USER/.vim/bundle/Vundle.vim" ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
