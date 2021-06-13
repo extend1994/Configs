@@ -9,14 +9,22 @@ if [ "${OSTYPE}" != "linux-gnu" ] || [[ "${BASH_VARIABLE[@]}" =~ "SYSTEM_BASE" ]
   exit 1
 fi
 
+echo "Prepare necessary apt repositories for latest vim & cmake"
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt -qq -y install wget
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+
 echo "Now start to install working tools via apt"
 # Update before installation in order to avoid that apt fail to locate
 # expected package
 echo "Executing apt update..."
 sudo apt -qq update
+# Prepare for cmake
+sudo apt -qq -y install apt-transport-https ca-certificates gnupg software-properties-common
 # Install the working tools
 echo "Executing apt install..."
-sudo apt -qq install -y git tmux wget curl tree vim htop cmake jq openssh-server \
+sudo apt -qq install -y git tmux curl tree vim htop cmake jq openssh-server \
                     git-extras xclip python-pip
 # Enhance working tools: less
 sudo apt -qq install -y libsource-highlight-common source-highlight colordiff
