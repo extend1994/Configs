@@ -51,7 +51,7 @@ curl -Ss "$github_raw_url$diff_highlight" -o ~/.git/contrib/diff-highlight
 sudo chmod 755 ~/.git/contrib/diff-highlight
 echo.LightBoldGreen "dotfiles are all loaded successfully!"
 
-nvm_repo="creationix/nvm/v0.35.3/"
+nvm_repo="creationix/nvm/v0.38.0/"
 echo.LightBoldYellow "Install nvm and node"
 if [ ! -e "/home/$USER/.nvm/nvm.sh" ]; then
   curl -o- "$github_raw_url$nvm_repo""install.sh" | bash
@@ -60,7 +60,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 source ~/.bashrc
-nvm install v10
+nvm install v12
 
 echo.LightBoldYellow "Install useful tools..."
 pip install git+https://github.com/jeffkaufman/icdiff.git
