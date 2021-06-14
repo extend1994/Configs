@@ -294,7 +294,7 @@ let g:syntastic_check_on_wq = 0
 map <C-t> :NERDTreeToggle<CR>
 
 "===== NERDTree git plugin config"
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
   \ "Modified"  : "!",
   \ "Staged"    : "✚",
   \ "Untracked" : "?",
@@ -306,3 +306,6 @@ let g:NERDTreeIndicatorMapCustom = {
   \ 'Ignored'   : '☒',
   \ "Unknown"   : "??"
   \}
+
+"====== vim-snipmate config ======"
+let g:snipMate = { 'snippet_version' : 1 }
