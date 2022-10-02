@@ -1,0 +1,42 @@
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" auto completion
+Plugin 'Valloric/YouCompleteMe'
+" snippet engine
+Plugin 'SirVer/ultisnips'
+Plugin 'garbas/vim-snipmate'
+" vim-snipmate is dependent on vim-addon-mw-utils & tlib_vim
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+" snippet
+Plugin 'honza/vim-snippets'
+" markdown writing env
+Plugin 'plasticboy/vim-markdown'
+" centralize markdown text
+Plugin 'junegunn/goyo.vim'
+" markdown focus mode
+Plugin 'junegunn/limelight.vim'
+" vim status line
+Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+" text filtering and alignment
+Plugin 'godlygeek/tabular'
+" show git diff on left side of vim window
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+" syntax check
+Plugin 'vim-syntastic/syntastic'
+" file system explorer
+Plugin 'scrooloose/nerdtree'
+" show git status in NERDTree (can change symbols)
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" show real color of rgb text
+Plugin 'ap/vim-css-color'
+
+call vundle#end()             " required
+filetype plugin indent on     " required
+filetype plugin on
